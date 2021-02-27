@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'think-systems-root',
+  selector: 'thk-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

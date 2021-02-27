@@ -1,7 +1,8 @@
 {
   "version": 1,
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "32ad73bc-5906-4f99-998f-56d2a72c8731"
   },
   "defaultProject": "sandbox",
   "schematics": {
@@ -36,7 +37,7 @@
       "projectType": "application",
       "root": "apps/sandbox",
       "sourceRoot": "apps/sandbox/src",
-      "prefix": "think-systems",
+      "prefix": "thk",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -51,7 +52,9 @@
               "apps/sandbox/src/favicon.ico",
               "apps/sandbox/src/assets"
             ],
-            "styles": ["apps/sandbox/src/styles.scss"],
+            "styles": [
+              "apps/sandbox/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -112,7 +115,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/sandbox"],
+          "outputs": [
+            "coverage/apps/sandbox"
+          ],
           "options": {
             "jestConfig": "apps/sandbox/jest.config.js",
             "passWithNoTests": true
@@ -141,7 +146,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/sandbox-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/sandbox-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
