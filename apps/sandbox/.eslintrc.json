@@ -14,7 +14,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "think-systems",
+            "prefix": "thk",
             "style": "camelCase"
           }
         ],
@@ -22,7 +22,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "think-systems",
+            "prefix": "thk",
             "style": "kebab-case"
           }
         ]

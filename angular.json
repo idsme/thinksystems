@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/sandbox",
       "sourceRoot": "apps/sandbox/src",
-      "prefix": "think-systems",
+      "prefix": "thk",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
