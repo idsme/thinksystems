@@ -1,14 +1,14 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
- * This is the keep it simple stupid view component of the calculator.
+ * Keep this view component simple and view only
  */
 @Component({
-  selector: 'thk-calculator',
-  templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.scss']
+  selector: 'thk-calculator-ui',
+  templateUrl: './calculator-ui.component.html',
+  styleUrls: ['./calculator-ui.component.scss']
 })
-export class CalculatorComponent {
+export class CalculatorUiComponent {
 
   @Input() calculatorDisplay = '0';
   @Input() operationSelected = false;

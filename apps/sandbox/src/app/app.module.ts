@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CalculatorComponent } from './calculator/calculator.component';
+import { CalculatorUiComponent } from './calculator-be/calculator-ui/calculator-ui.component';
 import { CalculatorBeComponent } from './calculator-be/calculator-be.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule } from '@angular/material/card';
@@ -21,20 +21,12 @@ import { ApiService } from './calculator-be/rest/api.service';
 // TODO IDSME Import MD module.. to keep clean.
 // Place calculator in its own module.?
 @NgModule({
-  declarations: [AppComponent, CalculatorComponent, CalculatorBeComponent],
+  declarations: [AppComponent, CalculatorUiComponent, CalculatorBeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatCardModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
   ],
   providers: [CalculatorService, ApiService, HttpClient],
   bootstrap: [AppComponent],
