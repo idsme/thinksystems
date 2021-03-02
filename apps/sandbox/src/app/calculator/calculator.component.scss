@@ -29,7 +29,6 @@ button {
     height: 60px;
     border-radius: 3px;
     border: 1px solid #c4c4c4;
-    background-color: transparent;
     font-size: 2rem;
     color: #333;
     background-image: linear-gradient(to bottom,transparent,transparent 50%,rgba(0,0,0,.04));
@@ -38,6 +37,10 @@ button {
 
     &:hover {
       background-color: #eaeaea;
+    }
+
+    &:disabled {
+      background-color: darkgrey;
     }
 
     &.operator {

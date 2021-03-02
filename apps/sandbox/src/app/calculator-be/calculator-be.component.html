@@ -46,4 +46,4 @@
 </div>
 
 <!--<thk-calculator [calculatorDisplay]='this.calculatorDisplay'></thk-calculator>-->
-<thk-calculator [calculatorDisplay]='this.calculatorDisplay' (calculate)="doCalculationInBackend()" (clearCalculator)="clearCalculator()" (numberInput)="numberInputSelected($event)" (operationType)="operationTypeSelected($event)"></thk-calculator>
+<thk-calculator [calculatorDisplay]='this.calculatorDisplay' [operationSelected]="this.operationSelected" (calculate)="doCalculationInBackend()" (clearCalculator)="clearCalculator()" (numberInput)="numberInputSelected($event)" (operationType)="operationTypeSelected($event)"></thk-calculator>

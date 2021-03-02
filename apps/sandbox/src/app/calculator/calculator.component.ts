@@ -9,6 +9,8 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class CalculatorComponent {
 
   @Input() calculatorDisplay = '0';
+  @Input() operationSelected = false;
+
   @Output() numberInput = new EventEmitter<string>();
   @Output() operationType = new EventEmitter<string>();
   @Output() calculate = new EventEmitter<any>();
