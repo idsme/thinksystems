@@ -1,14 +1,14 @@
 
 /**
- * This object rapresent the result obtained from webservice
+ * This object rapresent the calculation obtained from webservice
  */
-export class Result{
-    public result: number;
+export class Calculation {
+    public calculation: string;
     public error: boolean;
     public message: string;
 
-    constructor(result: number, error: boolean, message ?: string){
-        this.result = result;
+    constructor(calculation: string, error: boolean, message ?: string){
+        this.calculation = calculation;
         this.error = error;
         this.message = message;
     }

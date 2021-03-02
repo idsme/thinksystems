@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Result } from '../models/result.model';
+import { Calculation } from '../models/result.model';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
@@ -15,15 +15,15 @@ const httpOptions = {
 export class ApiService {
   constructor(private http: HttpClient) { }
 
-  post(path: String, body: Object = {}): Observable<Result> {
+  post(path: String, body: Object = {}): Observable<Calculation> {
     console.log("executing post metod : " + JSON.stringify(body));
-    return this.http.post<Result>(`${environment.api_url}/${path}`, JSON.stringify(body), httpOptions);
+    return this.http.post<Calculation>(`${environment.api_url}/${path}`, JSON.stringify(body), httpOptions);
   }
 
 
-  getAll(): Observable<Result[]> {
+  getAll(): Observable<Calculation[]> {
     console.log("executing getAll Method");
-    return this.http.get<Result[]>(`${environment.api_url}`, httpOptions);
+    return this.http.get<Calculation[]>(`${environment.api_url}`, httpOptions);
   }
 
 

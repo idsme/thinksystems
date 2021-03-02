@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mixinColor } from '@angular/material/core';
 import { CalculatorService } from './rest/calculator.service';
-import { Result } from './models/result.model';
+import { Calculation } from './models/result.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
@@ -28,19 +28,12 @@ export class CalculatorBeComponent implements OnInit {
   //The value that is displayed
   displayedValue : string = '0';
 
-  //The duration of the SnackBar (Ref: https://material.angular.io/components/snack-bar/examples)
-  // 5 seconds
-  durationInSeconds = 5*1000;
-
-  //error message
-  errorMessage: string;
-
   operator1 : string = '0';
   operator2 : string = '';
   operation : string;
 
   //Injecting the services into the component
-  public history$: Observable<Result[]>;
+  public history$: Observable<Calculation[]>;
 
   constructor(private restCalculator : CalculatorService, private snackBar: MatSnackBar) {
     this.firstValue = true;
@@ -49,21 +42,21 @@ export class CalculatorBeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //function that bind the click from numberic button in html
-  click(numberInput: string){
-    this.displayedValue = this.displayedValue.concat(numberInput);
+  //function that bind the numberInput from numberic button in html
+  numberInput(value: string){
+    this.displayedValue = this.displayedValue.concat(value);
     if(this.operation == undefined){
       if(this.firstValue){
         console.log("firstValue = " + this.firstValue);
-        this.operator1 = numberInput.toString();
-        this.displayedValue = numberInput.toString();
+        this.operator1 = value.toString();
+        this.displayedValue = value.toString();
         this.firstValue = false;
       }else{
-        console.log("firstValue = " + this.firstValue + " numberInput " + numberInput);
-        this.operator1 = this.operator1.concat(numberInput);
+        console.log("firstValue = " + this.firstValue + " value " + value);
+        this.operator1 = this.operator1.concat(value);
       }
     }else{
-      this.operator2 = this.operator2.concat(numberInput);
+      this.operator2 = this.operator2.concat(value);
     }
   }
 
@@ -79,7 +72,6 @@ export class CalculatorBeComponent implements OnInit {
     this.operator2 = '';
     this.firstValue = true;
     this.operation = undefined;
-    this.errorMessage = '';
     this.displayedValue = '0';
     this.pointInsertedOperator1 = false;
     this.pointInsertedOperator2 = false;
@@ -104,20 +96,15 @@ export class CalculatorBeComponent implements OnInit {
     //calling che RESTful Service
     this.restCalculator.doOperation(Number.parseFloat(this.operator1), Number.parseFloat(this.operator2), this.operation).subscribe(
       res =>{
-        if(!res.error){
-          this.displayedValue = res.result.toString();
-          this.operator1 = res.result.toString();
+          // TODO Why display value and operator 1 can this be one thing.
+          this.displayedValue = res.calculation;
+          this.operator1 = res.calculation;
           this.operationSelected = false;
           this.operator2 = '';
           this.operation = undefined;
-        }else{
-          this.errorMessage = res.message;
-          this.openSnackBar(this.errorMessage, null, this.durationInSeconds);
-        }
       },
       error => {
         console.log(error);
-        this.handleErrors(error);
       });
   }
 
@@ -133,17 +120,6 @@ export class CalculatorBeComponent implements OnInit {
     return this.operator1.length > 0 && this.operator2.length > 0 && this.operation.length > 0;
   }
 
-  openSnackBar(message: string, action: string, duration: number) {
-    console.log("OpenSnackBar --> " + message);
-    this.snackBar.open(message, action, {
-      duration: duration,
-    });
-  }
-
-  private handleErrors(error: HttpErrorResponse) {
-    this.errorMessage = "Error: can't connect the RESTful web service. " + error.message;
-    this.openSnackBar(this.errorMessage, null, this.durationInSeconds);
-  }
 
   showCalculationHistory() {
     this.history$ = this.restCalculator.getAll()

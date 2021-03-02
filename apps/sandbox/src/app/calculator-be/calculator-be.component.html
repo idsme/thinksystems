@@ -10,16 +10,16 @@
     <div class="calc-num">
       <mat-card style="width: 450px; margin: auto;" class="calculator-numbers">
         <mat-grid-list cols="3" rowHeight="1:1">
-          <mat-grid-tile><button mat-button (click)="click('1')">1</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('2')">2</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('3')">3</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('4')">4</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('5')">5</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('6')">6</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('7')">7</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('8')">8</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('9')">9</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button (click)="click('0')">0</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('1')">1</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('2')">2</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('3')">3</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('4')">4</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('5')">5</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('6')">6</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('7')">7</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('8')">8</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('9')">9</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="numberInput('0')">0</button></mat-grid-tile>
           <mat-grid-tile><button mat-button [disabled]="pointDisable()" (click)="insertPoint()">.</button></mat-grid-tile>
           <mat-grid-tile><button mat-button (click)="delete()">DEL</button></mat-grid-tile>
         </mat-grid-list>
@@ -39,7 +39,7 @@
         </mat-grid-list>
       </mat-card>
     </div>
-    <section data-cy="history-secditon">
+    <section data-cy="history-section">
       <ul>
         <li *ngFor="let calculation of (this.history$ | async)">{{calculation.calculation}}</li>
       </ul>
