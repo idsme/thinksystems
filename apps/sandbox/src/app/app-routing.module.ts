@@ -7,7 +7,7 @@ import { CalculatorBeComponent } from './calculator-be/calculator-be.component';
 const routes: Routes = [
   { path: "calc", component: CalculatorComponent },
   { path: "calcbe", component: CalculatorBeComponent},
-  { path: "**", component: CalculatorComponent}];
+  { path: "**", component: CalculatorBeComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

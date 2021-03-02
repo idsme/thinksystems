@@ -1,76 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'thk-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent {
 
-  currentNumber = '0';
-  firstOperand = null;
-  operator = null;
-  waitForSecondNumber = false;
+  @Input() calculatorDisplay = '0';
+  @Output() numberInput = new EventEmitter<string>();
+  @Output() operationType = new EventEmitter<string>();
+  @Output() calculate = new EventEmitter<any>();
+  @Output() clearCalculator = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  public numberInputSelected(value: string) {
+    this.numberInput.emit(value);
   }
 
-  public getNumber(v: string){
-    console.log(v);
-    if(this.waitForSecondNumber)
-    {
-      this.currentNumber = v;
-      this.waitForSecondNumber = false;
-    }else{
-      this.currentNumber === '0'? this.currentNumber = v: this.currentNumber += v;
-
-    }
+  public operationTypeSelected(operation: string) {
+    this.operationType.emit(operation);
   }
 
-  getDecimal(){
-    if(!this.currentNumber.includes('.')){
-        this.currentNumber += '.'; 
-    }
+  public doCalculation() {
+    this.calculate.emit();
   }
 
-  private doCalculation(op , secondOp){
-    switch (op){
-      case '+':
-      return this.firstOperand += secondOp; 
-      case '-': 
-      return this.firstOperand -= secondOp; 
-      case '*': 
-      return this.firstOperand *= secondOp; 
-      case '/': 
-      return this.firstOperand /= secondOp; 
-      case '=':
-      return secondOp;
-    }
-  }
-  public getOperation(op: string){
-    console.log(op);
-
-    if(this.firstOperand === null){
-      this.firstOperand = Number(this.currentNumber);
-
-    }else if(this.operator){
-      const result = this.doCalculation(this.operator , Number(this.currentNumber))
-      this.currentNumber = String(result);
-      this.firstOperand = result;
-    }
-    this.operator = op;
-    this.waitForSecondNumber = true;
-
-    console.log(this.firstOperand);
- 
-  }
-
-  public clear(){
-    this.currentNumber = '0';
-    this.firstOperand = null;
-    this.operator = null;
-    this.waitForSecondNumber = false;
+  public clearCalculatorMemory() {
+    this.clearCalculator.emit();
   }
 }

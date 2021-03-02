@@ -28,10 +28,10 @@
     <div class="calc-ops" style="margin-left: 10px">
       <mat-card style="width: 100px;  margin: auto; background: #424242;color: white;;" class="calculator-operations">
         <mat-grid-list cols="1" rowHeight="1:1">
-          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('add', '+')">+</button></mat-grid-tile>
-          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('subtract', '-')">-</button></mat-grid-tile>
-          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('divide', '/')">/</button></mat-grid-tile>
-          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('multiply', '*')">*</button></mat-grid-tile>
+          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('+')">+</button></mat-grid-tile>
+          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('-')">-</button></mat-grid-tile>
+          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected( '/')">/</button></mat-grid-tile>
+          <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected( '*')">*</button></mat-grid-tile>
           <mat-grid-tile><button mat-button [disabled]="!enableCalculatedResultButton()" (click)="doCalculationInBackend()"><strong>=</strong></button></mat-grid-tile>
           <mat-grid-tile></mat-grid-tile>
         </mat-grid-list>
@@ -44,3 +44,6 @@
     </section>
   </div>
 </div>
+
+<!--<thk-calculator [calculatorDisplay]='this.calculatorDisplay'></thk-calculator>-->
+<thk-calculator [calculatorDisplay]='this.calculatorDisplay' (calculate)="doCalculationInBackend()" (clearCalculator)="clearCalculator()" (numberInput)="numberInputSelected($event)" (operationType)="operationTypeSelected($event)"></thk-calculator>

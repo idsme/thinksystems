@@ -40,9 +40,24 @@ export class CalculatorBeComponent {
     this.calculatorDisplay = this.inputA + this.operationSymbol + this.inputB;
   }
 
-  operationTypeSelected(operationType: string, symbol: string): void {
-    this.operationType = operationType;
-    this.operationSymbol = symbol;
+  operationTypeSelected(operationSymbol: string): void {
+
+    switch (operationSymbol) {
+      case '+':
+        this.operationType = 'add';
+        break;
+      case '-':
+        this.operationType = 'subtract';
+        break;
+      case '*':
+        this.operationType = 'multiply';
+        break;
+      case '/':
+        this.operationType = 'divide';
+        break;
+    }
+
+    this.operationSymbol = operationSymbol;
     this.operationSelected = true;
   }
 
