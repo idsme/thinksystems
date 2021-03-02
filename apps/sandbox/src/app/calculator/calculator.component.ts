@@ -44,23 +44,8 @@ export class CalculatorComponent {
   }
 
   operationTypeSelected(operationSymbol: string): void {
-
-    switch (operationSymbol) {
-      case '+':
-        this.operationType = 'add';
-        break;
-      case '-':
-        this.operationType = 'subtract';
-        break;
-      case '*':
-        this.operationType = 'multiply';
-        break;
-      case '/':
-        this.operationType = 'divide';
-        break;
-    }
-
     this.operationSymbol = operationSymbol;
+    this.operationType = CalculatorService.convertOperationSymbolToOperationType(operationSymbol);
     this.operationSelected = true;
   }
 

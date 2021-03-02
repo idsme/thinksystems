@@ -26,4 +26,23 @@ export class CalculatorService {
   getCalculationHistory(): Observable<Calculation[]> {
     return this.http.get<Calculation[]>(`${environment.api_url}`, httpOptions);
   }
+
+  public static convertOperationSymbolToOperationType(operationSymbol: string): string {
+    let operationType = "unknown";
+    switch (operationSymbol) {
+      case '+':
+        operationType = 'add';
+        break;
+      case '-':
+        operationType = 'subtract';
+        break;
+      case '*':
+        operationType = 'multiply';
+        break;
+      case '/':
+        operationType = 'divide';
+        break;
+    }
+    return operationType;
+  }
 }
