@@ -33,7 +33,7 @@ export class CalculatorComponent {
 
   numberInputSelected(value: string) {
 
-    if(this.operationSelected){
+    if(!this.operationSelected){
         this.inputA = this.inputA.concat(value);
     } else {
       this.inputB = this.inputB.concat(value);

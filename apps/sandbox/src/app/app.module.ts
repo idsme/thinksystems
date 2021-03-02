@@ -8,9 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalculatorService } from './calculator-be/services/calculator.service';
+import { PageAboutComponent } from './page-about/page-about.component';
 
 @NgModule({
-  declarations: [AppComponent, CalculatorUiComponent, CalculatorComponent],
+  declarations: [AppComponent, CalculatorUiComponent, CalculatorComponent, PageAboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
