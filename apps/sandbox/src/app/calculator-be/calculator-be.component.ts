@@ -4,7 +4,9 @@ import { Calculation } from './models/calculation.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
-
+/**
+ * This is the backend state component of the calculator.
+ */
 @Component({
   selector: 'thk-calculator-be',
   templateUrl: './calculator-be.component.html',
@@ -87,11 +89,6 @@ export class CalculatorBeComponent {
         console.error(error);
       });
   }
-
-  enableCalculatedResultButton(): boolean {
-    return this.inputA.length > 0 && this.inputB.length > 0 && !!this.operationType;
-  }
-
 
   showCalculationHistory(): void {
     this.history$ = this.calculatorService.getCalculationHistory()

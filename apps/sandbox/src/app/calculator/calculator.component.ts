@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
-
+/**
+ * This is the keep it simple stupid view component of the calculator.
+ */
 @Component({
   selector: 'thk-calculator',
   templateUrl: './calculator.component.html',
