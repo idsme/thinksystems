@@ -1,2 +1,16 @@
-
-<thk-calculator-ui [calculatorDisplay]='this.calculatorDisplay' [operationSelected]="this.operationSelected" (calculate)="doCalculationInBackend()" (clearCalculator)="clearCalculator()" (numberInput)="numberInputSelected($event)" (operationType)="operationTypeSelected($event)"></thk-calculator-ui>
+<section data-cy="cy-calculator">
+<thk-calculator-ui [calculatorDisplay]='this.calculatorDisplay'
+                   [operationSelected]='this.operationSelected'
+                   (calculate)='doCalculationInBackend()'
+                   (clearCalculator)='clearCalculator()'
+                   (numberInput)='numberInputSelected($event)'
+                   (operationType)='operationTypeSelected($event)'
+                   (showHistory)='showCalculationHistory()'>
+</thk-calculator-ui>
+</section>
+<section data-cy="history-section">
+  <h4>Press Show History Button To Retrieve previous calculations made:</h4>
+  <ul>
+    <li *ngFor="let calculation of (this.history$ | async)">{{calculation.calculation}}</li>
+  </ul>
+</section>

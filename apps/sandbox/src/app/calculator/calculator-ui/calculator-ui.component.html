@@ -27,7 +27,7 @@
 
 
     <button type="button" (click) = "numberInputSelected('0')" value="0">0</button>
-    <button type="button" class="decimal" value=".">.</button><!-- cancel -->
+    <button type="button" (click) = "showPreviousCalculationsMade()">Show history</button><!-- cancel -->
     <button type="button" (click) = "clearCalculatorMemory()"  class="all-clear" value="all-clear">AC</button>
 
     <button type="button" (click) = "doCalculation()" class="equal-sign" value="=">=</button>

@@ -22,12 +22,12 @@ export class CalculatorComponent {
 
   operationSymbol = '';
   operationType : string = undefined;
-  operationSelected = false; // IDSME TODO Waste.
+  operationSelected = false;
 
   //Injecting the services into the component
   public history$: Observable<Calculation[]>;
 
-  constructor(private calculatorService : CalculatorService) {}
+  constructor(public calculatorService : CalculatorService) {}
 
   // Where should state be? Service?
   // Which are helper methods
@@ -56,7 +56,6 @@ export class CalculatorComponent {
         this.operationType = 'multiply';
         break;
       case '/':
-        console.log('Divide');
         this.operationType = 'divide';
         break;
     }
@@ -75,11 +74,9 @@ export class CalculatorComponent {
   }
 
   doCalculationInBackend() {
-    console.log(Number.parseFloat(this.inputA) + " " + Number.parseFloat(this.inputB));
 
     this.calculatorService.doCalculation(Number.parseFloat(this.inputA), Number.parseFloat(this.inputB), this.operationType).subscribe(
       res =>{
-          // TODO Why display value and operator 1 can this be one thing.
           this.calculatorDisplay = res.calculation;
           this.inputA = '';
           this.inputB = '';
@@ -93,6 +90,7 @@ export class CalculatorComponent {
   }
 
   showCalculationHistory(): void {
-    this.history$ = this.calculatorService.getCalculationHistory()
+    this.history$ = this.calculatorService.getCalculationHistory();
   }
+
 }

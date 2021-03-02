@@ -17,6 +17,7 @@ export class CalculatorUiComponent {
   @Output() operationType = new EventEmitter<string>();
   @Output() calculate = new EventEmitter<any>();
   @Output() clearCalculator = new EventEmitter<any>();
+  @Output() showHistory = new EventEmitter<any>();
 
   constructor() {}
 
@@ -34,5 +35,9 @@ export class CalculatorUiComponent {
 
   public clearCalculatorMemory() {
     this.clearCalculator.emit();
+  }
+
+  public showPreviousCalculationsMade() {
+    this.showHistory.emit();
   }
 }

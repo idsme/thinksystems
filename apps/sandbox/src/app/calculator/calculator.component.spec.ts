@@ -4,7 +4,7 @@ import { CalculatorComponent } from './calculator.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // TODO IDSME Commented out for now
-xdescribe('CalculatorComponent', () => {
+describe('CalculatorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CalculatorComponent],
