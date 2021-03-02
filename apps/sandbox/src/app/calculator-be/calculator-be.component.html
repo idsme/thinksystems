@@ -20,7 +20,7 @@
           <mat-grid-tile><button mat-button (click)="numberInputSelected('8')">8</button></mat-grid-tile>
           <mat-grid-tile><button mat-button (click)="numberInputSelected('9')">9</button></mat-grid-tile>
           <mat-grid-tile><button mat-button (click)="numberInputSelected('0')">0</button></mat-grid-tile>
-          <mat-grid-tile><button mat-button [disabled]="disableDecimalPointButton()" (click)="addDecimalPointToInput()">.</button></mat-grid-tile>
+          <mat-grid-tile><button mat-button (click)="showCalculationHistory()">Show History</button></mat-grid-tile>
           <mat-grid-tile><button mat-button (click)="clearCalculator()">CLEAR</button></mat-grid-tile>
         </mat-grid-list>
       </mat-card>
@@ -33,9 +33,7 @@
           <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('divide', '/')">/</button></mat-grid-tile>
           <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="operationTypeSelected('multiply', '*')">*</button></mat-grid-tile>
           <mat-grid-tile><button mat-button [disabled]="!enableCalculatedResultButton()" (click)="doCalculationInBackend()"><strong>=</strong></button></mat-grid-tile>
-          <mat-grid-tile>
-            <button mat-button (click)="showCalculationHistory()">Show History</button>
-          </mat-grid-tile>
+          <mat-grid-tile></mat-grid-tile>
         </mat-grid-list>
       </mat-card>
     </div>

@@ -12,9 +12,6 @@ import { Observable } from 'rxjs';
 })
 export class CalculatorBeComponent {
 
-  //its a flag that identify if the user have inserted the first value, if so we need to remove the zero from the inputA
-  firstValue = true;
-
   //only one point is permitted
   decimalPointUsedInInputA = false;
   decimalPointUsedInInputB = false;
@@ -56,25 +53,10 @@ export class CalculatorBeComponent {
   clearCalculator(){
     this.inputA = '';
     this.inputB = '';
-    this.firstValue = true;
     this.operationType = undefined;
     this.operationSymbol = '';
     this.displayedValue = '0';
-    this.decimalPointUsedInInputA = false;
-    this.decimalPointUsedInInputB = false;
     this.operationSelected = false;
-  }
-
-  addDecimalPointToInput(){
-    if(this.operationType == undefined){
-      this.decimalPointUsedInInputA = true;
-      this.displayedValue = this.displayedValue.concat('.');
-      this.inputA = this.inputA.concat('.');
-    }else{
-      this.decimalPointUsedInInputB = true;
-      this.displayedValue = this.displayedValue.concat('.');
-      this.inputB = this.inputB.concat('.');
-    }
   }
 
   doCalculationInBackend(){
@@ -93,14 +75,6 @@ export class CalculatorBeComponent {
       error => {
         console.error(error);
       });
-  }
-
-  disableDecimalPointButton(): boolean {
-    if(this.operationType == undefined){
-      return this.decimalPointUsedInInputA;
-    }else{
-      return this.decimalPointUsedInInputB;
-    }
   }
 
   enableCalculatedResultButton(): boolean {
