@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { mixinColor } from '@angular/material/core';
 import { CalculatorService } from './rest/calculator.service';
-import { Calculation } from './models/result.model';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Calculation } from './models/calculation.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
@@ -12,116 +10,105 @@ import { Observable } from 'rxjs';
   templateUrl: './calculator-be.component.html',
   styleUrls: ['./calculator-be.component.scss']
 })
-export class CalculatorBeComponent implements OnInit {
+export class CalculatorBeComponent {
 
-  //its a flag that identify if the user have inserted the first value, if so we need to remove the zero from the operator1
-  firstValue : boolean;
+  //its a flag that identify if the user have inserted the first value, if so we need to remove the zero from the inputA
+  firstValue = true;
 
   //only one point is permitted
-  pointInsertedOperator1 : boolean = false;
-  pointInsertedOperator2 : boolean = false;
+  decimalPointUsedInInputA = false;
+  decimalPointUsedInInputB = false;
 
-  //If the operation is selected or not!
-  //if so disable other operation buttons
-  operationSelected : boolean = false;
+  displayedValue = '0';
 
-  //The value that is displayed
-  displayedValue : string = '0';
+  inputA = '';
+  inputB  = '';
 
-  operator1 : string = '0';
-  operator2 : string = '';
-  operation : string;
+  operationType : string = undefined;
+  operationSelected = false;
+  operationSymbol = '';
 
   //Injecting the services into the component
   public history$: Observable<Calculation[]>;
 
-  constructor(private restCalculator : CalculatorService, private snackBar: MatSnackBar) {
-    this.firstValue = true;
+  constructor(private restCalculator : CalculatorService) {
   }
 
-  ngOnInit(): void {
-  }
+  numberInputSelected(value: string) {
 
-  //function that bind the numberInput from numberic button in html
-  numberInput(value: string){
-    this.displayedValue = this.displayedValue.concat(value);
-    if(this.operation == undefined){
-      if(this.firstValue){
-        console.log("firstValue = " + this.firstValue);
-        this.operator1 = value.toString();
-        this.displayedValue = value.toString();
-        this.firstValue = false;
-      }else{
-        console.log("firstValue = " + this.firstValue + " value " + value);
-        this.operator1 = this.operator1.concat(value);
-      }
+    // if operation type undefined add to input A
+    if(this.operationType == undefined){
+
+        this.inputA = this.inputA.concat(value);
     }else{
-      this.operator2 = this.operator2.concat(value);
+      this.inputB = this.inputB.concat(value);
     }
+
+    this.displayedValue = this.inputA + this.operationSymbol + this.inputB;
   }
 
-  setOperation(operation: string, symbol: string){
-    this.operation = operation;
-    this.displayedValue = this.displayedValue.concat(symbol);
+  operationTypeSelected(operationType: string, symbol: string){
+    this.operationType = operationType;
+    this.operationSymbol = symbol;
     this.operationSelected = true;
   }
 
-  //reset all operation
-  delete(){
-    this.operator1 = '0';
-    this.operator2 = '';
+  clearCalculator(){
+    this.inputA = '';
+    this.inputB = '';
     this.firstValue = true;
-    this.operation = undefined;
+    this.operationType = undefined;
+    this.operationSymbol = '';
     this.displayedValue = '0';
-    this.pointInsertedOperator1 = false;
-    this.pointInsertedOperator2 = false;
+    this.decimalPointUsedInInputA = false;
+    this.decimalPointUsedInInputB = false;
     this.operationSelected = false;
   }
 
-  //insert point
-  insertPoint(){
-    if(this.operation == undefined){
-      this.pointInsertedOperator1 = true;
+  addDecimalPointToInput(){
+    if(this.operationType == undefined){
+      this.decimalPointUsedInInputA = true;
       this.displayedValue = this.displayedValue.concat('.');
-      this.operator1 = this.operator1.concat('.');
+      this.inputA = this.inputA.concat('.');
     }else{
-      this.pointInsertedOperator2 = true;
+      this.decimalPointUsedInInputB = true;
       this.displayedValue = this.displayedValue.concat('.');
-      this.operator2 = this.operator2.concat('.');
+      this.inputB = this.inputB.concat('.');
     }
   }
 
-  result(){
-    console.log(Number.parseFloat(this.operator1) + " " + Number.parseFloat(this.operator2));
-    //calling che RESTful Service
-    this.restCalculator.doOperation(Number.parseFloat(this.operator1), Number.parseFloat(this.operator2), this.operation).subscribe(
+  doCalculationInBackend(){
+    console.log(Number.parseFloat(this.inputA) + " " + Number.parseFloat(this.inputB));
+
+    this.restCalculator.doCalculation(Number.parseFloat(this.inputA), Number.parseFloat(this.inputB), this.operationType).subscribe(
       res =>{
           // TODO Why display value and operator 1 can this be one thing.
           this.displayedValue = res.calculation;
-          this.operator1 = res.calculation;
+          this.inputA = '';
+          this.inputB = '';
           this.operationSelected = false;
-          this.operator2 = '';
-          this.operation = undefined;
+          this.operationSymbol = '';
+          this.operationType = undefined;
       },
       error => {
-        console.log(error);
+        console.error(error);
       });
   }
 
-  pointDisable(){
-    if(this.operation == undefined){
-      return this.pointInsertedOperator1;
+  disableDecimalPointButton(): boolean {
+    if(this.operationType == undefined){
+      return this.decimalPointUsedInInputA;
     }else{
-      return this.pointInsertedOperator2;
+      return this.decimalPointUsedInInputB;
     }
   }
 
-  resultButtonVisible(){
-    return this.operator1.length > 0 && this.operator2.length > 0 && this.operation.length > 0;
+  enableCalculatedResultButton(): boolean {
+    return this.inputA.length > 0 && this.inputB.length > 0 && !!this.operationType;
   }
 
 
-  showCalculationHistory() {
-    this.history$ = this.restCalculator.getAll()
+  showCalculationHistory(): void {
+    this.history$ = this.restCalculator.getCalculationHistory()
   }
 }

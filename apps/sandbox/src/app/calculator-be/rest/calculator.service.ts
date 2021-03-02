@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
-import { Calculation } from '../models/result.model';
-import { HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { Calculation } from '../models/calculation.model';
 
 @Injectable()
 export class CalculatorService {
 
    constructor(private apiService: ApiService) { }
 
-   doOperation(operand1: number, operand2: number, operation: string): Observable<Calculation> {
-      return this.apiService.post(operation, { "a": operand1, "b": operand2 });
+   doCalculation(inputA: number, inputB: number, operation: string): Observable<Calculation> {
+      return this.apiService.post(operation, { "a": inputA, "b": inputB });
    }
 
-  getAll(): Observable<Calculation[]> {
+  getCalculationHistory(): Observable<Calculation[]> {
     return this.apiService.getAll();
   }
 
