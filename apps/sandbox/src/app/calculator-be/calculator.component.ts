@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorService } from './rest/calculator.service';
+import { CalculatorService } from './services/calculator.service';
 import { Calculation } from './models/calculation.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
  * This is the backend state component of the calculator.
  */
 @Component({
-  selector: 'thk-calculator-be',
-  templateUrl: './calculator-be.component.html',
-  styleUrls: ['./calculator-be.component.scss']
+  selector: 'thk-calculator',
+  templateUrl: './calculator.component.html',
+  styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorBeComponent {
+export class CalculatorComponent {
 
   calculatorDisplay = '0';
 
@@ -55,6 +55,7 @@ export class CalculatorBeComponent {
         this.operationType = 'multiply';
         break;
       case '/':
+        console.log('Divide');
         this.operationType = 'divide';
         break;
     }

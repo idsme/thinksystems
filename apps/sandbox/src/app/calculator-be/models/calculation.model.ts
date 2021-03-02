@@ -1,15 +1,10 @@
 
 /**
- * This object rapresent the calculation obtained from webservice
+ * This object represent the calculation obtained from webservice
+ * Normally I would use swagger generated angular service.. Thus testing is not needed.
+ * But no time left.
  */
 export class Calculation {
-    public calculation: string;
-    public error: boolean;
-    public message: string;
-
-    constructor(calculation: string, error: boolean, message ?: string){
-        this.calculation = calculation;
-        this.error = error;
-        this.message = message;
+    constructor(public calculation: string){
     }
 }

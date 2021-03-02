@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { CalculatorUiComponent } from './calculator-be/calculator-ui/calculator-ui.component';
-import { CalculatorBeComponent } from './calculator-be/calculator-be.component';
 
 const routes: Routes = [
-  { path: "calc", component: CalculatorUiComponent },
-  { path: "**", component: CalculatorBeComponent}];
+  { path: "just_show_calculator_ui", component: CalculatorUiComponent },
+  { path: "calculator", component: CalculatorUiComponent },
+  { path: "**", redirectTo: 'calculator'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
