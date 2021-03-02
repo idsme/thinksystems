@@ -1,26 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { PageAboutComponent } from './page-about.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PageAboutComponent', () => {
-  let component: PageAboutComponent;
-  let fixture: ComponentFixture<PageAboutComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageAboutComponent ],
-
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageAboutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [PageAboutComponent],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+    }).compileComponents();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the component', () => {
+    const fixture = TestBed.createComponent(PageAboutComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
+
 });
