@@ -13,7 +13,7 @@ const httpOptions = {
 
 
 @Injectable()
-export class CalculatorService {
+export class CalculatorServiceA {
   constructor(private http: HttpClient) { }
 
    doCalculation(inputA: number, inputB: number, operation: string): Observable<Calculation> {

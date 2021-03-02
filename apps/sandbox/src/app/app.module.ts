@@ -7,7 +7,7 @@ import { CalculatorComponent } from './calculator-be/calculator.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalculatorService } from './calculator-be/services/calculator.service';
+import { CalculatorServiceA } from './calculator-be/services/calculator-service-a.service';
 import { PageAboutComponent } from './page-about/page-about.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { PageAboutComponent } from './page-about/page-about.component';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [CalculatorService, HttpClient],
+  providers: [CalculatorServiceA, HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
