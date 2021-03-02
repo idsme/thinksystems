@@ -19,7 +19,7 @@ export class CalculatorBeComponent {
 
   operationSymbol = '';
   operationType : string = undefined;
-  operationSelected = false;
+  operationSelected = false; // IDSME TODO Waste.
 
   //Injecting the services into the component
   public history$: Observable<Calculation[]>;
