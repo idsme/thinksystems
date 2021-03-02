@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorServiceA } from './services/calculator-service-a.service';
+
 import { Calculation } from './models/calculation.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { CalculatorService } from './services/calculator.service';
 
 /**
  * This is the backend state component of the calculator.
@@ -26,7 +27,7 @@ export class CalculatorComponent {
   //Injecting the services into the component
   public history$: Observable<Calculation[]>;
 
-  constructor(private calculatorService : CalculatorServiceA) {}
+  constructor(private calculatorService : CalculatorService) {}
 
   // Where should state be? Service?
   // Which are helper methods
