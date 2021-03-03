@@ -31,3 +31,23 @@ Cypress.Commands.add('login', (email, password) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+
+//New but org from command.js file.
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+addMatchImageSnapshotCommand();
+
+
+export {}
+
+declare global {
+  namespace Cypress {
+    interface Chainable<Subject> {
+      login(email: string, password: string): void;
+      matchImageSnapshot(): Chainable<Subject>;
+      matchImageSnapshot(name: string): Chainable<Subject>;
+      matchImageSnapshot(options: any): Chainable<Subject>;
+      matchImageSnapshot(name: string, options: any): Chainable<Subject>;
+    }
+  }
+}

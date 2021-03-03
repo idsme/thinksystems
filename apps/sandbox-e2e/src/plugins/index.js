@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -12,11 +15,30 @@
 // the project's config changing)
 
 const { preprocessTypescript } = require('@nrwl/cypress/plugins/preprocessor');
+const { addMatchImageSnapshotPlugin, matchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin');
 
-module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+// original
+// module.exports = (on, config) => {
+//   // `on` is used to hook into various events Cypress emits
+//   // `config` is the resolved Cypress config
+//
+//   // Preprocess Typescript file using Nx helper
+//   on('file:preprocessor', preprocessTypescript(config));
+// };
 
-  // Preprocess Typescript file using Nx helper
-  on('file:preprocessor', preprocessTypescript(config));
-};
+
+  module.exports = (on, config) => {
+    on('file:preprocessor', preprocessTypescript(config));
+    // after:screenshott via ImageSnapshot
+    addMatchImageSnapshotPlugin(on, config);
+    // Override
+    // on('after:screenshot', (details) => {
+    //   console.log('after:screenshot:>',details);
+    //   const newPath = path.resolve(__dirname, '../new-path/screenshot.png');
+    //   fs.renameSync(details.path, newPath);
+    //   console.log('NEWPATH:>', newPath);
+    //   // Get it ready for the matchImagSnapshot plugin
+    //   details.path = newPath;
+    //   matchImageSnapshotPlugin(details);
+    // })
+  }
