@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CalculatorComponent } from './calculator.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-// TODO IDSME Commented out for now
-describe('CalculatorComponent', () => {
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CalculatorComponent } from './calculator.component';
+
+describe('PageAboutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CalculatorComponent],

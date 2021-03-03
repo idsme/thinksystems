@@ -8,7 +8,6 @@ import { CalculatorComponent } from './calculator/calculator.component';
 const routes: Routes = [
   { path: "just_show_calculator_ui", component: CalculatorUiComponent },
   { path: "calculator", component: CalculatorComponent },
-  { path: "calculations-history", component: CalculatorUiComponent },
   { path: "about", component: PageAboutComponent },
   { path: "**", redirectTo: 'about'}];
 

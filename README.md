@@ -2,6 +2,8 @@
 
 # ThinkSystems
 
+* The apps in this repo where created using. Node. v14.16.01 and NPM 6.14.11 which are the newest at the time of this writing..... will probably change in a day. ;)
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
