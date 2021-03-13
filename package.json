@@ -26,7 +26,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "rmdist": "rm -rf dist"
+    "rmdist": "rm -rf dist",
+    "sanity-check": "npm run test && npm run e2e && npm run start --prod"
   },
   "private": true,
   "dependencies": {

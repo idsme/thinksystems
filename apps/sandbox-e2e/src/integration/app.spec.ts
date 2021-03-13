@@ -18,7 +18,7 @@ xdescribe('about-snapshots', () => {
     cy.matchImageSnapshot();
 
     // snapshot name will be the name passed in
-    cy.matchImageSnapshot('#page-title');
+    cy.matchImageSnapshot('[data-cy="section-calculator]"');
 
     // options object passed in
     //cy.matchImageSnapshot(options);
