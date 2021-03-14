@@ -10,3 +10,7 @@ DIV, SPAN {
 .small-right-margin {
   margin-right: $small-spacer;
 }
+
+.medium-right-margin {
+  margin-right: $small-spacer * 2;
+}

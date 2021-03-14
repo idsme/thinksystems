@@ -7,17 +7,17 @@
       Jou name&nbsp;<input type='text' [value]='this.yourName'/>
     </div>
     <div>
-      Score <b>{{this.currentScore}}</b>
+      Score <b>{{this.currentScore}}</b>&nbsp;&nbsp;&nbsp;
+      HighScore <b>{{this.highScore}}</b>&nbsp;&nbsp;&nbsp;by&nbsp;<b>{{this.highScoreName}}</b>
     </div>
     <div style="display:flex; background-color:pink">Lives&nbsp;<b>{{this.currentLivesLeft}}</b>
     </div>
   </div>
   <div style='background-color:#4e9ed4; display: flex; align-items: center; justify-content: center; flex-direction: column'>
-    <div style='background: cornflowerblue'>
+    <div style='background: transparent'>
       <thk-question [question]=question></thk-question>
     </div>
     <thk-answer (answered)="checkAnswer($event)"></thk-answer>
-    <div style='background-color: yellow'>{{this.correct}}</div>
-    <div style='background-color: gold'>{{this.feedback}}</div>
+    <div style='background-color: transparent'>{{this.feedback}}</div>
   </div>
 </div>

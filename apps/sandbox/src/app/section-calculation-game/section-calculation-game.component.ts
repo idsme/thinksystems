@@ -11,10 +11,15 @@ export class SectionCalculationGameComponent implements OnInit {
   a = 7;
   b = 4;
   question = this.a + '+' + this.b;
-  correct = '????';
+  feedback = '????';
   currentLivesLeft= 3;
   yourName= 'idsme';
-  feedback= '';
+
+
+  highScore = 0;
+  highScoreName = '---';
+
+  gameOver= false;
 
   constructor() { }
 
@@ -24,13 +29,27 @@ export class SectionCalculationGameComponent implements OnInit {
   checkAnswer($event: number) {
       if((this.a + this.b) === $event)
       {
-        this.correct = 'CORRECT!!!';
+        this.feedback = '!!!GOED!!!';
         this.currentScore ++;
         console.log('currentScore', this.currentScore);
       } else {
-        this.correct = 'HELAAS...';
+        this.feedback = '...HELAAS...';
         this.currentLivesLeft--;
-        this.feedback = 'Kom op je hebt nog levens:' + this.currentLivesLeft;
+        this.feedback = 'Kom op!!!';
+
+        if(this.currentLivesLeft <= 0) {
+          this.feedback = 'GAME--OVER';
+          this.gameOver = true;
+          if(this.currentScore > this.highScore) {
+            alert('New HighScore!! ' +  this.currentScore + ' by ' + this.yourName);
+            this.highScore = this.currentScore;
+            this.highScoreName = this.yourName;
+            this.currentScore = 0;
+          } else {
+            this.feedback = 'Kom op!! Nog een keer.'
+          }
+        }
+
       }
 
     this.generateNewQuestion();
