@@ -13,7 +13,7 @@ export class SectionCalculationGameComponent implements OnInit {
   question = this.a + ' + ' + this.b;
   feedback = 'Ja.. ja.. die weet je niet of wel?';
   currentLivesLeft= 3;
-  yourName= 'idsme';
+  yourName= 'Idsme';
 
 
   highScore = 0;
