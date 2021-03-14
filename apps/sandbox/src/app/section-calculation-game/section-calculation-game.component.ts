@@ -10,8 +10,8 @@ export class SectionCalculationGameComponent implements OnInit {
   currentScore = 0;
   a = 7;
   b = 4;
-  question = this.a + '+' + this.b;
-  feedback = '????';
+  question = this.a + ' + ' + this.b;
+  feedback = 'Ja.. ja.. die weet je niet of wel?';
   currentLivesLeft= 3;
   yourName= 'idsme';
 
@@ -35,19 +35,18 @@ export class SectionCalculationGameComponent implements OnInit {
       } else {
         this.feedback = '...HELAAS...';
         this.currentLivesLeft--;
-        this.feedback = 'Kom op!!!';
 
         if(this.currentLivesLeft <= 0) {
-          this.feedback = 'GAME--OVER';
+
           this.gameOver = true;
           if(this.currentScore > this.highScore) {
             alert('New HighScore!! ' +  this.currentScore + ' by ' + this.yourName);
             this.highScore = this.currentScore;
             this.highScoreName = this.yourName;
             this.currentScore = 0;
-          } else {
-            this.feedback = 'Kom op!! Nog een keer.'
           }
+          // Reset score & lives
+          this.feedback = 'GAME--OVER';
         }
 
       }
@@ -69,5 +68,13 @@ export class SectionCalculationGameComponent implements OnInit {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  }
+
+  playAgain() {
+    this.currentScore = 0;
+    this.currentLivesLeft = 3;
+    this.gameOver = false;
+    // TODO idsme restart timer.
+
   }
 }

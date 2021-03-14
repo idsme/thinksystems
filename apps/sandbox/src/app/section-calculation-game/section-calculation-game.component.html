@@ -17,7 +17,8 @@
     <div style='background: transparent'>
       <thk-question [question]=question></thk-question>
     </div>
-    <thk-answer (answered)="checkAnswer($event)"></thk-answer>
+    <thk-answer [hidden]='this.gameOver' (answered)="checkAnswer($event)"></thk-answer>
     <div style='background-color: transparent'>{{this.feedback}}</div>
+    <button (click)='playAgain()'>Start Over</button>
   </div>
 </div>
