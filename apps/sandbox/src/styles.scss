@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+$spacer: 4;
+$small-spacer: $spacer *2;
+
+
+DIV, SPAN {
+  margin: $small-spacer;
+}
+
+.small-right-margin {
+  margin-right: $small-spacer;
+}
