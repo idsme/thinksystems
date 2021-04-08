@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:4200/",
+  "projectId": "oqauij",
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",
   "integrationFolder": "./src/integration",
@@ -9,5 +9,7 @@
   "video": true,
   "videosFolder": "../../dist/cypress/apps/sandbox-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/sandbox-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "blockHosts": ["*.googletagmanager.com", "*.google.com", "*.googleapis.com", "*.google-analytics.com", "*.bing.com",
+  "*.r42tag.com", "www.youtube.com", "*.optimizely.com", "*.cloudfront.net", "*.conversationalsdevelopment.nl", "w.usabilla.com"]
 }

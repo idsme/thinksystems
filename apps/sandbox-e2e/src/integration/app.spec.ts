@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('sandbox-home-page', () => {
+xdescribe('sandbox-home-page', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -29,10 +29,49 @@ xdescribe('about-snapshots', () => {
 });
 
 
-const routes = ['about'];
+describe('login', () => {
+  it('inloggen', () => {
+    cy.visit('https://www.rnlfin.rsg/mijn-randstad');
+
+    cy.get('#input-username').type('employee@rnlfin.nl');
+    cy.get('#input-password').type('Password1');
+
+    cy.get('.form-group__input > .button').click();
+
+    // snapshot name will be the test title
+    //cy.matchImageSnapshot();
+
+    // snapshot name will be the name passed in
+    //cy.matchImageSnapshot('#page-title');
+
+    // options object passed in
+    //cy.matchImageSnapshot(options);
+
+    // match element snapshot
+    cy.get('BODY').matchImageSnapshot();
+  });
+
+  xit('uitloggen', () => {
+    cy.visit('https://www.rnlfin.rsg/mijn-randstad');
+
+    cy.get('#input-username').type('employee@rnlfin.nl');
+    cy.get('#input-password').type('Password1');
+
+    cy.get('.form-group__input > .button').click();
+
+    cy.get('BODY').matchImageSnapshot();
+  });
+
+});
+
+
+
+
+// nx e2e frontend-e2e --baseUrl=https://frontend.com
+const routes = ['https://www.rnlfin.rsg/mijn-randstad/werknemers/mijn-gegevens'];
 
 // Snap shot of all routes in array...
-describe('Route screenshots', () => {
+xdescribe('Route screenshots', () => {
   routes.forEach((route)=> {
     const componentName = route;
     const testName = `${componentName} page - should match previous screenshot`;

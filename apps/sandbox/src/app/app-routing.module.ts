@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: "just_show_calculator_ui", component: CalculatorUiComponent },
   { path: "calculator", component: CalculatorComponent },
   { path: "about", component: PageAboutComponent },
-  { path: "**", redirectTo: 'about'}];
+  { path: "**", redirectTo: 'calculator'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
