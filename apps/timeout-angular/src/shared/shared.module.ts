@@ -27,13 +27,8 @@ import {MasterDataService} from './duplo/masterdata/masterdata.service';
 import {FeedBackService} from './duplo/feedback/feedback.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormInputReactiveModule} from '../app/form-input-reactive/form-input-reactive.module';
-import {ButtonPrimairyComponent} from './ui/button-primairy/button-primairy.component';
-import {ExampleButtonsComponent} from './ui/example-buttons/example-buttons.component';
-import {IconButtonComponent} from './ui/icon-button/icon-button.component';
-import {IconButtonAlternativeComponent} from './ui/icon-button-alternative/icon-button-alternative.component';
-import { ButtonAlternativeComponent } from './ui/button-alternative/button-alternative.component';
-import { ButtonComponent } from './ui/button.component';
 import { EntriesPipe } from './pipes/entries.pipe';
+import { IconButtonComponent } from './ui/icon-button/icon-button.component';
 
 /**
  * If a component could be re-used by another web-site it goes in Shared Moduless
@@ -51,9 +46,7 @@ export const COMPONENTS = [HeaderComponent, HeaderImageComponent,
 
     RouterLinkTesterComponent, AngularFlexLayoutComponent, FeedbackComponent, ConfigComponent, ReleasenotesComponent, FileNotFoundComponent,
 
-    StyleguideComponent, ButtonPrimairyComponent, ExampleButtonsComponent,
-
-    IconButtonComponent, IconButtonAlternativeComponent, ButtonAlternativeComponent, ButtonComponent,
+    StyleguideComponent, IconButtonComponent,
 
     EntriesPipe];
 
