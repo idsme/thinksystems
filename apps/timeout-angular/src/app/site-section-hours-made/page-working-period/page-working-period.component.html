@@ -25,13 +25,13 @@
   <li style="border-bottom: 1px dashed green;list-style-type: none; padding-top: 7px; padding-bottom: 2px;" *ngFor="let currentPeriod of periods" class="workPeriod">
     <ids-worked-period-item [workedPeriod]="currentPeriod"></ids-worked-period-item>
     <span *ngIf="viewMode === 'EDIT'">
-      <button class="button button--minus" *ngIf='currentPeriod.hoursPerDay>0'
+      <button class="button button--minus" style='padding-left:8px;padding-right:8px' *ngIf='currentPeriod.hoursPerDay>0'
               (click)="plus(-1, currentPeriod)">-</button>
-      <button class="button" *ngIf='currentPeriod.hoursPerDay>0' id="button-clear"
+      <button class="button" style='padding-left:8px;padding-right:8px' *ngIf='currentPeriod.hoursPerDay>0' id="button-clear"
               (click)="clear(currentPeriod.dayOfTheMonth)">clear</button>
-      <button class="button" *ngIf='currentPeriod.hoursPerDay===0' id="button-fill"
+      <button class="button" style='padding-left:8px;padding-right:8px' *ngIf='currentPeriod.hoursPerDay===0' id="button-fill"
               (click)="fill(currentPeriod.dayOfTheMonth)">fill</button>
-      <button class="button button--plus" *ngIf='currentPeriod.hoursPerDay>0'
+      <button class="button button--plus" style='padding-left:8px;padding-right:8px' *ngIf='currentPeriod.hoursPerDay>0'
               (click)="plus(1, currentPeriod)">+</button>
     </span>
   </li>
