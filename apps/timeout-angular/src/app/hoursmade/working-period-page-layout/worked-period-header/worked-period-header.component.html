@@ -1,0 +1,37 @@
+<section id="section-worked-period-header">
+
+  <div id="header-top" class="regularVerticalPadding" style="width:100%">
+    <div style="float:left;">
+      <div class="textWhite regularHorizontalPadding" style="display:inline-block; text-align: right">Think Systems</div>
+      <div class="regularHorizontalPadding" style=" display:inline-block">
+        <ids-icon-button (click)="clickedPrint();" label="{{printButtonText}}" [active]="printButtonActive"></ids-icon-button>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div class="textWhite regularHorizontalPadding" style="width:200px; float:right; text-align:right; display:inline-block">Urenstaat</div>
+    <div style="clear:both;"></div>
+  </div>
+
+  <div id="header-bottom" class="regularVerticalPadding" style="width:100%">
+    <div class="regularHorizontalPadding" style="width:50%; float:left">
+      <span> {{consultantName}}</span>&nbsp;-&nbsp;
+      <span>{{monthName}}</span>
+    </div>
+    <div class="regularHorizontalPadding" style="width:50%; float:left; text-align: right">Project : {{projectName}}</div>
+    <div style="clear:both;"></div>
+  </div>
+
+
+
+<!--
+  <div class="regularVerticalPadding regularDashedBottomBorder" style="width: 100%">
+    <span class="regularHorizontalPadding"> {{consultantName}}</span>&nbsp;-&nbsp;
+    <span class="regularHorizontalPadding">{{monthName}}</span>
+ </div>
+
+  <div>
+    <span class="regularVerticalPadding regularHorizontalPadding">Project : {{projectName}}</span>
+  </div>
+-->
+
+</section>

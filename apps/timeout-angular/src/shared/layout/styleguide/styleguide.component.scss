@@ -1,0 +1,70 @@
+
+/* Space between each control/component */
+.releasenotes-section {
+  margin-top: 5rem;
+  margin-left: 3rem;
+}
+
+
+/* Width of color pallet container 500 equals 1 column 1000 equals 2 etc. */
+.color-palette {
+  width: 500px;
+  padding-bottom: 60px;
+  line-height: 1;
+}
+
+.color-palette .color-group, .article-content .color-group:last-child {
+  float: left;
+  margin-left: 40px;
+  padding-bottom: 40px;
+  width: 360px;
+}
+
+.style-item {
+ margin-bottom: 3rem;
+}
+
+/* Side Nav Component CSS */
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+/* End Side Nav Css */
+
+
+//Begin start icon sizes style guide
+//Move to style guide scss if possible.
+$icon_xs: 16px;
+$icon_s: 20px;
+$icon_xl: 28px;
+
+mat-icon.xs{
+  font-size:$icon_xs;
+  height:$icon_xs;
+  width: $icon_xs;
+}
+
+mat-icon.s{
+  font-size:$icon_s;
+  height:$icon_s;
+  width: $icon_s;
+}
+
+mat-icon.xl{
+  font-size:$icon_xl;
+  height:$icon_xl;
+  width: $icon_xl;
+}
+//End icon siszes style guide

@@ -1,0 +1,55 @@
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="viewMode === 'EDIT'" style="text-align:center">
+  <h2>
+    No time for filling in time sheets. Try this one.
+  </h2>
+  <a [routerLink]="['/users']" [queryParams]="{debug: true}">
+    user-profile settings
+  </a>
+  <a [routerLink]="['/']" [queryParams]="{debug: true}">
+    home
+  </a>
+</div>
+
+<ids-action-menu (prevMonth)="gotoPrevMonth1()" (nextMonth)="gotoNextMonth1()" *ngIf="viewMode === 'EDIT'"> </ids-action-menu>
+
+
+<ids-worked-period-header [consultantName]="USER_SETTINGS?.settings?.name || ''" [projectName]="USER_SETTINGS?.settings?.projectName || ''" [clientName]="'EPO'" monthName="{{currentDate?.format('MMMM')}}" (print)="togglePrint()">Print> </ids-worked-period-header>
+<ids-worked-period-totals *ngIf="viewMode === 'EDIT'" totalHoursThisMonth="{{totalHours}}"
+                          totalExcludingTax="{{earningsThisMonth}}"
+                          totalIncludingTax="{{earningsThisMonth * 1.21}}" ></ids-worked-period-totals>
+
+<section id="section-work-period-page-layout">
+<ul style="margin: 0; padding: 0;">
+  <li style="border-bottom: 1px dashed green;list-style-type: none; padding-top: 7px; padding-bottom: 2px;" *ngFor="let currentPeriod of periods" class="workPeriod">
+    <ids-worked-period-item [workedPeriod]="currentPeriod"></ids-worked-period-item>
+    <span *ngIf="viewMode === 'EDIT'">
+      <button class="button button--minus" *ngIf='currentPeriod.hoursPerDay>0'
+              (click)="plus(-1, currentPeriod)">-</button>
+      <button class="button" *ngIf='currentPeriod.hoursPerDay>0' id="button-clear"
+              (click)="clear(currentPeriod.dayOfTheMonth)">clear</button>
+      <button class="button" *ngIf='currentPeriod.hoursPerDay===0' id="button-fill"
+              (click)="fill(currentPeriod.dayOfTheMonth)">fill</button>
+      <button class="button button--plus" *ngIf='currentPeriod.hoursPerDay>0'
+              (click)="plus(1, currentPeriod)">+</button>
+    </span>
+  </li>
+</ul>
+
+</section>
+
+<ids-work-period-hours-total totalHoursThisMonth="{{totalHours}}"></ids-work-period-hours-total>
+
+<!-- TODO get number of workdays from Moments.js -->
+<!-- TODO find first day of the month. -->
+<!-- TODO display all days of the month inside a table. -->
+<!-- TODO fill in with real data -->
+
+<!--<ids-worked-period-footer signCityConsultant="'Rijswijk'"-->
+                          <!--signingDateConsultant="'2018-09-01'"-->
+                          <!--consultantName="Ids Achterhof"-->
+                          <!--signingDateManager="2019-01-01"-->
+                          <!--signingManager="Pable Romerez"></ids-worked-period-footer>-->
+
+<ids-worked-period-footer signingManager="Pable Romerez"></ids-worked-period-footer>

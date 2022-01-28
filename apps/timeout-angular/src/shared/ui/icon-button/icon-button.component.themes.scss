@@ -1,0 +1,22 @@
+@media print {
+
+  .icon-button {
+    -webkit-print-color-adjust: exact;
+    border: 3px solid transparent !important;
+    background-color: transparent !important;
+    color: transparent !important;
+    //visibility: hidden;
+  }
+}
+
+
+.icon-button {
+  border: 1px solid $color-brand-gray;
+  background-color: $color-brand-green-primairy;
+  color: $color-brand-white;
+
+  .active {
+    background-color: $color-brand-green-primairy;
+  }
+}
+

@@ -1,0 +1,19 @@
+a {
+  width: 200px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 2px;
+  background-color: rgba(62, 62, 62, 0.7);
+  padding: 10px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  span {
+    object-fit: contain;
+    font-size: 16px;
+    color: #ffffff;
+  }
+}

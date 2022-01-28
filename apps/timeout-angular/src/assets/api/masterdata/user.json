@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "userName": "I. Achterhof",
+    "hoursPerDay": 9,
+    "workDays": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "rate": 90,
+    "projectName": "TNO",
+    "startTimeDay": "8:00"
+  },
+  "projects": [
+    {
+      "name": "TNO",
+      "clientCode": "998",
+      "rate": 90
+    },
+    {
+      "name": "project b",
+      "clientCode": "667",
+      "rate": 85
+    }
+  ]
+}

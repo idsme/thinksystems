@@ -7,6 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "ng serve",
+    "st": "ng serve timeout-angular",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
@@ -29,6 +30,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^13.0.1",
     "@angular/animations": "13.1.2",
     "@angular/common": "13.1.2",
     "@angular/compiler": "13.1.2",
@@ -61,6 +63,7 @@
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "5.3.1",
     "@typescript-eslint/parser": "5.3.1",
+    "autoprefixer": "^10.4.0",
     "cypress": "^6.0.1",
     "dotenv": "10.0.0",
     "eslint": "8.2.0",
@@ -68,7 +71,9 @@
     "eslint-plugin-cypress": "^2.10.3",
     "jest": "27.2.3",
     "jest-preset-angular": "11.0.0",
+    "postcss": "^8.4.5",
     "prettier": "2.3.1",
+    "tailwindcss": "^3.0.2",
     "ts-jest": "27.0.5",
     "ts-node": "~9.1.1",
     "typescript": "4.5.4"

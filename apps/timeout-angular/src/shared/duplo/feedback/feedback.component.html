@@ -1,0 +1,30 @@
+<div id="page-feedback">
+  <form [formGroup]="form">
+<!--    <star-rating-comp [starType]="'svg'" formControlName="rating"  [hoverEnabled]="true"></star-rating-comp>-->
+
+    <app-input [group]="form" controlname="name" placeholder="Naam"></app-input>
+    <app-input [group]="form" controlname="comment" placeholder="Opmerking"></app-input>
+    <app-input [group]="form" controlname="contactinfo" placeholder="Tel of Email"></app-input>
+
+    <app-formdebug [group]="form"></app-formdebug>
+    <div>
+      <button
+        type="submit"
+        [disabled]="form.invalid" (click)="onSubmit()">
+        Submit
+      </button>
+    </div>
+
+    <pre>LastPosted:>{{ this.form.value.rating }}</pre>
+
+  <!--  *ngFor="let option of filteredOptionsPrestatie$ | async"-->
+
+  <!-- TODO make a Feedback Display component -->
+
+  </form>
+  <div *ngFor="let feedback of this.feedbacks">
+    {{feedback.rating}}, {{feedback.name}} , {{feedback.comment}}, {{feedback.id}}
+  </div>
+<div></div>
+</div>
+

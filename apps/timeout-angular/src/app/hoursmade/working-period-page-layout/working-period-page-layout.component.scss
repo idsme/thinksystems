@@ -1,0 +1,34 @@
+$radius : 5px;
+$color-brand-green-dark: limegreen !default;
+$color-brand-red-dark: lightcoral !default;
+
+// text-overflow: ellipsis
+@mixin ellipsis(){
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+
+.button {
+  display: inline-block;
+  @include ellipsis();
+//  @include fontPri(medium);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: $radius;
+  transition: all .2s ease-out;
+  border: 1px solid floralwhite;
+  background-color :ghostwhite;
+
+  // color specific switch
+  &--plus {
+    background-color: $color-brand-green-dark;
+
+    &:before,
+    span {color:white;}
+  }
+
+  // Show more products button, used on the 'KBS' page
+  &--minus {
+    background-color: $color-brand-red-dark;
+  }
+}

@@ -1,0 +1,10 @@
+<!-- niet mvp -->
+<section id="section-overview-today">
+  <div class="hours">{{currentDateTime| date:"yyyy-MM-dd hh:mm:ss a"}} Current Date Time</div>
+  <div class="hours">{{startDateTime| date:"yyyy-MM-dd hh:mm:ss a"}} StartDateTime Date Time</div>
+  <div class="hours">{{startDateTime | date:"hh:mm:ss"}} Begin time</div>
+  <div class="hours">{{millisecondsSindsStart | date:"hh:mm:ss"}} Hours Don't understand why this is higher then I thought</div>
+  <div class="hours">{{millisecondsSindsStart }} Millies</div>
+  <div class="euros"> &euro; {{millisecondsSindsStart | rate :90 | number: '3.2-2'}} Euros</div>
+    <pre>millis{{millisecondsSindsStart}}</pre>
+</section>

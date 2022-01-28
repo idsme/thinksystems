@@ -1,0 +1,16 @@
+INPUT.ng-valid[required], INPUT.ng-valid.required  {
+  border-bottom-color: #42A948; /* green */
+}
+
+INPUT.ng-invalid:not(form)  {
+  border-bottom-color: #a94442; /* red */
+}
+
+SPAN.input-text-container {
+  padding-right: 66px;
+  /* Keeps the Input box from growing and shrinking. When adding a border */
+  INPUT {
+    border-bottom: 13px solid transparent;
+  }
+}
+

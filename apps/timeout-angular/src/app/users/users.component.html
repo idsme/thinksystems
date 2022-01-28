@@ -1,0 +1,62 @@
+<h2>User:</h2>
+
+<section id="section-user-config">
+  <form [formGroup]="userConfigForm" (ngSubmit)="this.submit()">
+    <div>
+      <label>Name of User:></label>
+      <input formControlName="userName">
+    </div>
+    <div>
+      <label>default hours per day1:></label>
+        <input formControlName="hoursPerDay">
+    </div>
+    <div>
+      <label>Rate in Euros:></label>
+      <input formControlName="rate">
+    </div>
+    <div>
+      <label>Name of Project:></label>
+      <input formControlName="projectName">
+    </div>
+      <div>
+          <label>Start work time +-:></label>
+          <input formControlName="startTimeDay">
+      </div>
+    <div>
+      <label>Name of Client:></label>
+      <input formControlName="clientName">
+    </div>
+
+
+    <div formGroupName="workDays">
+      <div>ma</div>
+      <input formControlName="ma" placeholder="WorkDay">
+      <div>di</div>
+      <input formControlName="di" placeholder="WorkDay">
+      <div>wo</div>
+      <input formControlName="wo" placeholder="WorkDay">
+      <div>do</div>
+      <input formControlName="do" placeholder="WorkDay">
+      <div>vr</div>
+      <input formControlName="vr" placeholder="WorkDay">
+      <div>za</div>
+      <input formControlName="za" placeholder="WorkDay">
+      <div>zo</div>
+      <input formControlName="zo" placeholder="WorkDay">
+
+      Chosen name: Needs fixing {{ userConfigForm.controls['workDays'].value }}
+    </div>
+
+    <!-- todo add selection of project to config page store using select box -->
+
+
+    <button type="submit" (click)="this.submit()">submit</button>
+  </form>
+</section>
+
+<div>
+  <div>Config:>{{ (this.userAppConfig ) | json}}</div>
+  <div>form content:>{{this.userConfigForm.value | json}}</div>
+  <div>form validity:>{{this.userConfigForm.valid}}}</div>
+</div>
+

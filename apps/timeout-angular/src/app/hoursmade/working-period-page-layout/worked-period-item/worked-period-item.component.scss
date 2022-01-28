@@ -1,0 +1,25 @@
+:host {
+  padding-left:16px;
+}
+
+SPAN {
+  background-color: floralwhite;
+  display:inline-block;
+  width:35px;
+  border: 1px solid ghostwhite;
+  &.number {
+    width:25px;
+    background-color: whitesmoke;
+    text-align:right;
+  }
+  &.special-number {
+    width:95px;
+    background-color: floralwhite;
+    text-align:center;
+    font-weight: bold;
+  }
+  &.project-name {
+    width:80px;
+  }
+}
+

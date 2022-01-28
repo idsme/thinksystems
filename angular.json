@@ -119,6 +119,140 @@
       },
       "tags": [],
       "implicitDependencies": ["sandbox"]
+    },
+    "timeout-angular": {
+      "projectType": "application",
+      "root": "apps/timeout-angular",
+      "sourceRoot": "apps/timeout-angular/src",
+      "prefix": "ids",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/timeout-angular",
+            "index": "apps/timeout-angular/src/index.html",
+            "main": "apps/timeout-angular/src/main.ts",
+            "polyfills": "apps/timeout-angular/src/polyfills.ts",
+            "tsConfig": "apps/timeout-angular/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/timeout-angular/src/favicon.ico",
+              "apps/timeout-angular/src/assets"
+            ],
+            "styles": ["apps/timeout-angular/src/styles.scss"],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/timeout-angular/webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/timeout-angular/src/environments/environment.ts",
+                  "with": "apps/timeout-angular/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/timeout-angular/webpack.prod.config.js"
+              }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nrwl/angular:webpack-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "timeout-angular:build:production"
+            },
+            "development": {
+              "browserTarget": "timeout-angular:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4201,
+            "proxyConfig": "apps/timeout-angular/proxy.conf.json",
+            "publicHost": "http://localhost:4201"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "timeout-angular:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/timeout-angular/src/**/*.ts",
+              "apps/timeout-angular/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/timeout-angular"],
+          "options": {
+            "jestConfig": "apps/timeout-angular/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": ["timeout-angular-tag"]
+    },
+    "timeout-angular-e2e": {
+      "root": "apps/timeout-angular-e2e",
+      "sourceRoot": "apps/timeout-angular-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/timeout-angular-e2e/cypress.json",
+            "devServerTarget": "timeout-angular:serve:development",
+            "tsConfig": "apps/timeout-angular-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "timeout-angular:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/timeout-angular-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["timeout-angular"]
     }
   }
 }

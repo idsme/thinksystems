@@ -1,0 +1,3 @@
+# Every app has a version number. 
+* This version number should be access-able from within the app.
+* The hours of time lost due to the wrong version is .....
