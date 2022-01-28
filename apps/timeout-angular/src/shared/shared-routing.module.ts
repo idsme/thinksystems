@@ -5,8 +5,6 @@ import {FileNotFoundComponent} from './duplo/file-not-found/file-not-found.compo
 import {RouterLinkTesterComponent} from './duplo/router-link-tester/router-link-tester.component';
 import {ConfigComponent} from './duplo/config/config.component';
 import {FeedbackComponent} from './duplo/feedback/feedback.component';
-import {FormExampleComponent} from '../app/form-input-reactive/formexample/formexample.component';
-import {FormExampleFlexComponent} from '../app/form-input-reactive/formexampleflex/formexampleflex.component';
 import {ApplicationVersionComponent} from './duplo/application-version/application-version.component';
 import {ExampleButtonsComponent} from './ui/example-buttons/example-buttons.component';
 
@@ -19,8 +17,6 @@ export const routes: Routes = [
   {path: 'shared/release-notes', redirectTo: 'about/release-notes', pathMatch: 'full'},
   {path: 'about/feedback', component: FeedbackComponent},
   {path: 'about/version', component: ApplicationVersionComponent},
-  {path: 'about/formflex', component: FormExampleFlexComponent },
-  {path: 'about/form', component: FormExampleComponent},
   {path: 'about/file-not-found', component: FileNotFoundComponent}, // Prod link
   {path: 'shared/file-not-found', redirectTo: 'about/file-not-found', pathMatch: 'full'}, // Debug link to see if redirection works
   {path: 'rn', component: ReleasenotesComponent}, // Short-cut link remove when going to prod.
