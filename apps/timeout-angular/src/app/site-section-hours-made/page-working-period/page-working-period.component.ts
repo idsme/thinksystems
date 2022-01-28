@@ -4,19 +4,19 @@ import {Moment} from 'moment';
 //import 'moment/locale/nl';
 import {WorkedPeriod} from '../worked-period';
 import {HoursMadeHelper} from '../hours-made-helper';
-import {LocalStorageService} from '../../users/local-storage.service';
+import {LocalStorageService} from '../../page-user-profile/local-storage.service';
 import {MasterDataService} from '../../../shared/duplo/masterdata/masterdata.service';
 import { IProject, IUser } from '../../api/iuser';
 import { User } from '../../api/user';
 
 @Component({
-    selector: 'ids-working-period-page-layout',
-    templateUrl: './working-period-page-layout.component.html',
-    styleUrls: ['./working-period-page-layout.component.scss']
+    selector: 'ids-page-working-period',
+    templateUrl: './page-working-period.component.html',
+    styleUrls: ['./page-working-period.component.scss']
 })
 
 
-export class WorkingPeriodPageLayoutComponent implements OnInit {
+export class PageWorkingPeriodComponent implements OnInit {
 
     USER_SETTINGS!: IUser;
     errorMessage!: string;

@@ -32,9 +32,11 @@
   "dependencies": {
     "@angular-architects/module-federation": "^13.0.1",
     "@angular/animations": "13.1.2",
+    "@angular/cdk": "^13.2.0",
     "@angular/common": "13.1.2",
     "@angular/compiler": "13.1.2",
     "@angular/core": "13.1.2",
+    "@angular/flex-layout": "^13.0.0-beta.36",
     "@angular/forms": "13.1.2",
     "@angular/platform-browser": "13.1.2",
     "@angular/platform-browser-dynamic": "13.1.2",

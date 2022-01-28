@@ -11,7 +11,7 @@ import {StyleguideComponent} from './layout/styleguide/styleguide.component';
 import {FooterComponent} from './layout/footer.component';
 import {HeaderComponent} from './layout/header.component';
 
-import {AngularFlexLayoutComponent} from '../app/form-input-reactive/angularflexlayout/angularflexlayout.component';
+import {AngularFlexLayoutComponent} from '../app/angularflexlayout.component';
 import {FeedbackComponent} from './duplo/feedback/feedback.component';
 // Feedback component contains great example code removed angular-star-rating from the package.json import
 // {StarRatingModule} from 'angular-star-rating';

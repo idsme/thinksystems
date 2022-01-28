@@ -7,7 +7,7 @@ import { User } from '../api/user';
 
 
 @Component({
-  selector: 'ids-users',
+  selector: 'ids-page-user-profile',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })

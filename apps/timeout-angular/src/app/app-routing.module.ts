@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {WorkingPeriodPageLayoutComponent} from './hoursmade/working-period-page-layout/working-period-page-layout.component';
-import {UsersComponent} from './users/users.component';
-import {UsersModule} from './users/users.module';
+import {PageWorkingPeriodComponent} from './site-section-hours-made/page-working-period/page-working-period.component';
+import {UsersComponent} from './page-user-profile/users.component';
+import {UsersModule} from './page-user-profile/users.module';
 import {SharedRoutingModule} from '../shared/shared-routing.module';
-import {TodayComponent} from './hoursmade/today/today.component';
+import {PageTodayDetailsComponent} from './site-section-hours-made/page-today-details/page-today-details.component';
+import { PageSiteMapComponent } from './page-site-map/page-site-map.component';
 
 const routes: Routes = [
-  {path: '', component: WorkingPeriodPageLayoutComponent},
-  {path: 'hours', component: WorkingPeriodPageLayoutComponent},
-  {path: 'hours/today', component: TodayComponent},
-  {path: 'users', component: UsersComponent},
+  {path: '', component: PageWorkingPeriodComponent},
+  {path: 'r', component: PageSiteMapComponent},
+  {path: 'hours', component: PageWorkingPeriodComponent},
+  {path: 'hours/page-today-details', component: PageTodayDetailsComponent},
+  {path: 'page-user-profile', component: UsersComponent},
   {path: 'about', loadChildren: () => import('../shared/shared.module').then(m => m.SharedModule)}
 ];
-// {path: 'recepten', loadChildren: './recipes/recipes.module#RecipesModule'},
 
 @NgModule({
   imports: [

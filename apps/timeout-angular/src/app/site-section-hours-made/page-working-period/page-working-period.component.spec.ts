@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkingPeriodPageLayoutComponent } from './working-period-page-layout.component';
+import { PageWorkingPeriodComponent } from './page-working-period.component';
 
 describe('WorkingPeriodPageLayoutComponent', () => {
-  let component: WorkingPeriodPageLayoutComponent;
-  let fixture: ComponentFixture<WorkingPeriodPageLayoutComponent>;
+  let component: PageWorkingPeriodComponent;
+  let fixture: ComponentFixture<PageWorkingPeriodComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkingPeriodPageLayoutComponent ]
+      declarations: [ PageWorkingPeriodComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkingPeriodPageLayoutComponent);
+    fixture = TestBed.createComponent(PageWorkingPeriodComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

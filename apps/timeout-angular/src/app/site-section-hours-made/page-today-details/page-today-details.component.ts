@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ids-today',
-  templateUrl: './today.component.html',
-  styleUrls: ['./today.component.scss']
+  selector: 'ids-page-today-details-details',
+  templateUrl: './page-today-details.component.html',
+  styleUrls: ['./page-today-details.component.scss']
 })
-export class TodayComponent implements OnInit {
+export class PageTodayDetailsComponent implements OnInit {
   millisecondsSindsStart = 131313;
   startDateTime = new Date();
   currentDateTime = new Date();

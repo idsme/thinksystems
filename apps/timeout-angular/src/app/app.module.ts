@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HoursmadeModule} from './hoursmade/hoursmade.module';
+import {HoursmadeModule} from './site-section-hours-made/hoursmade.module';
 import {SharedModule} from '../shared/shared.module';
 import {FormInputReactiveModule} from './form-input-reactive/form-input-reactive.module';
 import { RemoteEntryModule } from './remote-entry/entry.module';
+import { PageSiteMapComponent } from './page-site-map/page-site-map.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageSiteMapComponent
   ],
   imports: [
     FormInputReactiveModule,
@@ -18,7 +21,8 @@ import { RemoteEntryModule } from './remote-entry/entry.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    RemoteEntryModule
+    RemoteEntryModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
