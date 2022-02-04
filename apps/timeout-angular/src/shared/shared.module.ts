@@ -4,31 +4,19 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {ContentComponent} from './layout/content.component';
 import {ApplicationVersionComponent} from './duplo/application-version/application-version.component';
-import {ReleasenotesComponent} from './layout/releasenotes/releasenotes.component';
-import {StyleguideComponent} from './layout/styleguide/styleguide.component';
-import {FooterComponent} from './layout/footer.component';
-import {HeaderComponent} from './layout/header.component';
 
-import {AngularFlexLayoutComponent} from '../app/angularflexlayout.component';
 import {FeedbackComponent} from './duplo/feedback/feedback.component';
-// Feedback component contains great example code removed angular-star-rating from the package.json import
-// {StarRatingModule} from 'angular-star-rating';
-import {ConfigComponent} from './duplo/config/config.component';
-import {HeaderImageComponent} from './layout/header-image/header-image.component';
-import {FileNotFoundComponent} from './duplo/file-not-found/file-not-found.component';
 import {SharedRoutingModule} from './shared-routing.module';
 
-import {RouterLinkTesterComponent} from './duplo/router-link-tester/router-link-tester.component';
-import {ConfigService} from './duplo/config/config.service';
-import {MasterDataService} from './duplo/masterdata/masterdata.service';
+import {PageRouterLinkTesterComponent} from './duplo/page-router-link-tester/page-router-link-tester.component';
+import {MasterDataService} from './masterdata.service';
 
 import {FeedBackService} from './duplo/feedback/feedback.service';
 import {HttpClientModule} from '@angular/common/http';
-import {FormInputReactiveModule} from '../app/form-input-reactive/form-input-reactive.module';
 import { EntriesPipe } from './pipes/entries.pipe';
-import { IconButtonComponent } from './ui/icon-button/icon-button.component';
+import { IconButtonComponent } from './icon-button/icon-button.component';
+import { InputComponent } from './forms/input/input.component';
 
 /**
  * If a component could be re-used by another web-site it goes in Shared Moduless
@@ -36,17 +24,17 @@ import { IconButtonComponent } from './ui/icon-button/icon-button.component';
  * Add it to Shared and Inform the Lead dev. He is responsible for the creation of new modules.
  *
  * @type {(HeaderComponent | HeaderImageComponent | ContentComponent | FooterComponent | ApplicationVersionComponent |
- *     RouterLinkTesterComponent | AngularFlexLayoutComponent | FeedbackComponent | ConfigComponent | ReleasenotesComponent
+ *     PageRouterLinkTesterComponent | AngularFlexLayoutComponent | FeedbackComponent | ConfigComponent | ReleasenotesComponent
  *     | FileNotFoundComponent | StyleguideComponent)[]}
  */
 
-export const COMPONENTS = [HeaderComponent, HeaderImageComponent,
+export const COMPONENTS = [
 
-    ContentComponent, FooterComponent, ApplicationVersionComponent,
+    ApplicationVersionComponent,
 
-    RouterLinkTesterComponent, AngularFlexLayoutComponent, FeedbackComponent, ConfigComponent, ReleasenotesComponent, FileNotFoundComponent,
+    PageRouterLinkTesterComponent, FeedbackComponent,
 
-    StyleguideComponent, IconButtonComponent,
+    IconButtonComponent, InputComponent,
 
     EntriesPipe];
 
@@ -57,9 +45,9 @@ export const COMPONENT_PLUS_MODULES = [...COMPONENTS, MODULES];
 
 
 @NgModule({
-    imports: [MODULES, SharedRoutingModule, FormInputReactiveModule],
+    imports: [MODULES, SharedRoutingModule],
     declarations: COMPONENTS,
-    providers: [ConfigService, MasterDataService, FeedBackService],
+    providers: [MasterDataService, FeedBackService],
     exports: COMPONENT_PLUS_MODULES,
 })
 export class SharedModule {

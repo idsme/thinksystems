@@ -1,18 +1,20 @@
 import {NgModule} from '@angular/core';
 import {UsersComponent} from './users.component';
 import {LocalStorageService} from './local-storage.service';
-import {FormInputReactiveModule} from '../form-input-reactive/form-input-reactive.module';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const MODULES = [
-//  CommonModule,
-//  HttpClientModule,
-//  FormsModule,
-//  ReactiveFormsModule,
-//  RouterModule,
+ CommonModule,
+ HttpClientModule,
+ ReactiveFormsModule,
+ RouterModule,
 ];
 
 @NgModule({
-  imports: [MODULES, FormInputReactiveModule],
+  imports: [MODULES],
   declarations: [UsersComponent], providers: [LocalStorageService]
 })
 export class UsersModule { }

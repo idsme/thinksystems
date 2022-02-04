@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class FeedBackService extends AbstractRestImplService {
 
-  // Override the default settings with FeedBack specific settings.
+  // Override the default settings with FeedbackModel specific settings.
   override apiName: string = environment.appDataStore.apiNameFeedBack;
 
   constructor(httpClient: HttpClient) {

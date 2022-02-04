@@ -1,4 +1,4 @@
-import {WorkedPeriod} from './worked-period';
+import {WorkedPeriodModel} from './worked-period-model';
 
 export class HoursMadeHelper {
 
@@ -7,10 +7,10 @@ export class HoursMadeHelper {
    * @param {number} month
    * @param {number} year
    * @param {number} dayOfTheMonth
-   * @returns {WorkedPeriod}
+   * @returns {WorkedPeriodModel}
    */
   public static createDefaultPeriod(month: number, year: number, dayOfTheMonth: number) {
-    const workedPeriod = new WorkedPeriod();
+    const workedPeriod = new WorkedPeriodModel();
     workedPeriod.monthOfTheYear = month;
     workedPeriod.dayOfTheMonth = dayOfTheMonth;
     workedPeriod.year = year;
@@ -18,7 +18,7 @@ export class HoursMadeHelper {
     return workedPeriod;
   }
 
-  public static convertDefaultFreePeriod(workingDay: WorkedPeriod) {
+  public static convertDefaultFreePeriod(workingDay: WorkedPeriodModel) {
     console.log(`convertDefaultFreePeriod`);
 
     workingDay.hoursPerDay = 0;

@@ -4,7 +4,7 @@ import {FeedBackService} from './feedback.service';
 import {environment} from '../../../environments/environment';
 
 
-describe('FeedBack-service.ts', () => {
+describe('FeedbackModel-service.ts', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({

@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {FeedBack} from './domain/feedback';
+import {FeedbackModel} from './feedback-model';
 import {FeedBackService} from './feedback.service';
 import {Observable} from 'rxjs';
 import {retryWhen} from 'rxjs/operators';
-import {genericRetryStrategy} from '../../rxjs/rxjs-utils';
-import { AbstractForm } from '../../layout/forms/abstract-form';
+import {genericRetryStrategy} from '../../rxjs-utils';
+import { AbstractForm } from '../../forms/abstract-form';
 
 @Component({
   selector: 'app-feedback-component',
@@ -15,7 +15,7 @@ import { AbstractForm } from '../../layout/forms/abstract-form';
 // TODO IDSME add Simplicity Dept extract an Abstract version of a form Component with Submit, Loading
 export class FeedbackComponent extends AbstractForm {
 
-  public feedbacks = [] as FeedBack[];
+  public feedbacks = [] as FeedbackModel[];
 
   // TODO IDSME Change back to FeedbackRestImplService set the property to public so it can be overridden
   constructor(public feedbackRestService: FeedBackService) {
@@ -39,10 +39,10 @@ export class FeedbackComponent extends AbstractForm {
 
 
   public loading(): string {
-    // org let subscription: Observable<FeedBack[]> = this.feedbackRestService.getAll<FeedBack[]>();
-    // test with faulty 500 status let subscription: Observable<FeedBack[]> = this.feedbackRestService.getData(500);
+    // org let subscription: Observable<FeedbackModel[]> = this.feedbackRestService.getAll<FeedbackModel[]>();
+    // test with faulty 500 status let subscription: Observable<FeedbackModel[]> = this.feedbackRestService.getData(500);
 
-    const subscription: Observable<FeedBack[]> = this.feedbackRestService.getAll<FeedBack[]>().pipe(
+    const subscription: Observable<FeedbackModel[]> = this.feedbackRestService.getAll<FeedbackModel[]>().pipe(
       retryWhen(genericRetryStrategy({
         scalingDuration: 2000,
         excludedStatusCodes: [500]
@@ -55,7 +55,7 @@ export class FeedbackComponent extends AbstractForm {
       //   return of(error);})
     );
 
-    subscription.subscribe((results: FeedBack[]) => {
+    subscription.subscribe((results: FeedbackModel[]) => {
       this.loadingFinishedMetrics();
       console.log('All Feedbacks found:>', results);
       this.feedbacks = [...results];
@@ -74,16 +74,16 @@ export class FeedbackComponent extends AbstractForm {
 
     // Set status
     this.sendingStatus = true;
-    console.info('Sending FeedBack to server:>', this.form.value);
+    console.info('Sending FeedbackModel to server:>', this.form.value);
 
     // Start with posting the data.. to the server..
     // But this is the only thing this method's scope should be.
-    this.feedbackRestService.post<FeedBack>(this.form.value).subscribe((result: FeedBack) => {
+    this.feedbackRestService.post<FeedbackModel>(this.form.value).subscribe((result: FeedbackModel) => {
       this.sendingStatus = false;
       console.log('Result from post to server:>', result);
 
       // This is where data gets rendered to the view..
-      this.feedbackRestService.getSingle<FeedBack>(result.id).subscribe((result: FeedBack) => {
+      this.feedbackRestService.getSingle<FeedbackModel>(result.id).subscribe((result: FeedbackModel) => {
 
         // Copies returned data in correct member var.. but this makes testing more difficult. As the arrow function is un-testable.
         this.feedbacks.push(result);
@@ -96,20 +96,20 @@ export class FeedbackComponent extends AbstractForm {
   submit() {
 
     this.sendingStartMetrics();
-    console.info('Sending FeedBack to server:>', this.form.value);
+    console.info('Sending FeedbackModel to server:>', this.form.value);
 
     // Start with posting the data.. to the server.. and only do that within the scope of this method.
-    const feedBackSource = this.feedbackRestService.post<FeedBack>(this.form.value);
+    const feedBackSource = this.feedbackRestService.post<FeedbackModel>(this.form.value);
     feedBackSource.subscribe(this.sendingFinishedMetrics);
     feedBackSource.subscribe(this.processSuccessFullPostCall);
   }
 
   /**
    * When posting of a feedback to the server has gone succesfullly do this.
-   * @param {FeedBack} feedBack
-   * @returns {FeedBack}
+   * @param {FeedbackModel} feedBack
+   * @returns {FeedbackModel}
    */
-  private processSuccessFullPostCall(feedBack: FeedBack): FeedBack {
+  private processSuccessFullPostCall(feedBack: FeedbackModel): FeedbackModel {
     // Add it to the list displayed within the component.
     this.feedbacks.push(feedBack);
     return feedBack;

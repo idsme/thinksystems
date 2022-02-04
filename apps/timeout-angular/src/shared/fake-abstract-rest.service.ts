@@ -1,7 +1,5 @@
-import {IAbstractRestImplService} from './iabstract-rest.service';
 import {from, Observable} from 'rxjs';
 import {environment} from '../environments/environment';
-
 
 /**
  * What if a components needs a service but we don't want to provide it with a real service.
@@ -10,7 +8,7 @@ import {environment} from '../environments/environment';
  * this would be a integration test.
  */
 
-export class FakeAbstractRestImplService implements IAbstractRestImplService {
+export class FakeAbstractRestImplService {
 
   url: string = environment.appDataStore.url;
   apiName = 'fake_default_api_name_for_testing';

@@ -1,14 +1,13 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {IAbstractRestImplService} from './iabstract-rest.service';
 import {catchError, retryWhen} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
-import {genericRetryStrategy} from './rxjs/rxjs-utils';
+import {genericRetryStrategy} from './rxjs-utils';
 import {environment} from '../environments/environment';
 
 
 @Injectable()
-export class AbstractRestImplService implements IAbstractRestImplService {
+export class AbstractRestImplService {
 
   url: string = environment?.appDataStore?.url;
   apiName = '/fake_default_name_to_be_overridden';

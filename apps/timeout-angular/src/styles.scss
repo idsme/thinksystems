@@ -40,8 +40,8 @@ $color-brand-white: white !default;
 $color-brand-black: black !default;
 $color-brand-gray: lightslategray !default;
 
-@import "./shared/ui/icon-button/icon-button.component.themes";
-@import "app/site-section-hours-made/page-working-period/worked-period-header/worked-period-header.component.themes";
+@import "shared/icon-button/icon-button.component.themes";
+@import "app/site-section-hours-made/page-time-sheet/header/header.component.themes";
 
 .regularBottomBorder {
   border-bottom: 1px solid $color-brand-green-primairy;

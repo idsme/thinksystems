@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MasterDataService} from '../../shared/duplo/masterdata/masterdata.service';
+import {MasterDataService} from '../../shared/masterdata.service';
 import {LocalStorageService} from './local-storage.service';
 import { User } from '../api/user';
-
-
 
 @Component({
   selector: 'ids-page-user-profile',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
 
