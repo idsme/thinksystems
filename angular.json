@@ -253,6 +253,108 @@
       },
       "tags": [],
       "implicitDependencies": ["timeout-angular"]
+    },
+    "timeout-react": {
+      "root": "apps/timeout-react",
+      "sourceRoot": "apps/timeout-react/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/timeout-react",
+            "index": "apps/timeout-react/src/index.html",
+            "baseHref": "/",
+            "main": "apps/timeout-react/src/main.tsx",
+            "polyfills": "apps/timeout-react/src/polyfills.ts",
+            "tsConfig": "apps/timeout-react/tsconfig.app.json",
+            "assets": [
+              "apps/timeout-react/src/favicon.ico",
+              "apps/timeout-react/src/assets"
+            ],
+            "styles": ["apps/timeout-react/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/timeout-react/src/environments/environment.ts",
+                  "with": "apps/timeout-react/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "timeout-react:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "timeout-react:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/timeout-react/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/timeout-react"],
+          "options": {
+            "jestConfig": "apps/timeout-react/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "timeout-react-e2e": {
+      "root": "apps/timeout-react-e2e",
+      "sourceRoot": "apps/timeout-react-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/timeout-react-e2e/cypress.json",
+            "devServerTarget": "timeout-react:serve",
+            "tsConfig": "apps/timeout-react-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "timeout-react:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/timeout-react-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["timeout-react"]
     }
   }
 }
