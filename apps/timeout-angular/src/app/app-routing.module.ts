@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'hours', component: PageTimeSheetComponent},
   {path: 'hours/page-todays-details', component: PageTodaysDetailsComponent},
   {path: 'page-user-profile', component: UsersComponent},
-  {path: 'about', loadChildren: () => import('../shared/shared.module').then(m => m.SharedModule)}
+  {path: 'examples', loadChildren: () => import('../shared/shared.module').then(m => m.SharedModule)}
 ];
 
 @NgModule({

@@ -17,6 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { EntriesPipe } from './pipes/entries.pipe';
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { InputComponent } from './forms/input/input.component';
+import { ConfigComponent } from './duplo/config/config.component';
+import { ReleaseNotesComponent } from './duplo/release-notes/release-notes.component';
 
 /**
  * If a component could be re-used by another web-site it goes in Shared Moduless
@@ -31,11 +33,12 @@ import { InputComponent } from './forms/input/input.component';
 export const COMPONENTS = [
 
     ApplicationVersionComponent,
-
-    PageRouterLinkTesterComponent, FeedbackComponent,
-
-    IconButtonComponent, InputComponent,
-
+    ConfigComponent,
+    PageRouterLinkTesterComponent,
+    FeedbackComponent,
+    IconButtonComponent,
+    InputComponent,
+    ReleaseNotesComponent,
     EntriesPipe];
 
 export const MODULES = [CommonModule, HttpClientModule, //  If we add this Error pop's up in the console. ReactiveFormsModule

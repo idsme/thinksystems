@@ -1,9 +1,18 @@
-<div>
-  <div [routerLink]="['/shared/page-router-link-tester']" routerLinkActive="router-link-active" >router-link-tester</div>
-  <div [routerLink]="['/about/feedback']" routerLinkActive="router-link-active" >feedback</div>
-  <div [routerLink]="['/config']" routerLinkActive="router-link-active" >config</div>
-  <div [routerLink]="['/shared/release-notes']" routerLinkActive="router_link-active" >release-notes</div>
-  <button [routerLink]="['/shared/route-debug-root']" routerLinkActive="router_link-active">route-debug-root</button>
+<h1>All Duplo Routes</h1>
+<h2>All Duplo Routes</h2>
+<h3>All Duplo Routes</h3>
+<h4>All Duplo Routes</h4>
+
+<div class='flex flex-col'>
+  <a class='bg-secondary' [routerLink]="['/examples/about/application-version']" routerLinkActive="router-link-active" >application version</a>
+  <a class='bg-primary' [routerLink]="['/examples/about/config']" routerLinkActive="router-link-active" >config</a>
+  <a class='bg-secondary' [routerLink]="['/examples/about/feedback']" routerLinkActive="router-link-active" >feedback</a>
+  <a class='bg-primary' [routerLink]="['examples/page-router-link-tester']" routerLinkActive="router-link-active" >router-link-tester</a>
+  <a class='bg-secondary' [routerLink]="['/examples/shared/release-notes']" routerLinkActive="router_link-active" >release-notes</a>
+
+  <!-- TODO IdsME try below out -->
+  <h3>To Test out</h3>
+  <button class="" [routerLink]="['/shared/route-debug-root']" routerLinkActive="router_link-active">route-debug-root</button>
   <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" fragment="education">user bob</a>
   <a [routerLink]="['/user/henk']" [queryParams]="{debug: true}" queryParamsHandling="merge">
     user henk
